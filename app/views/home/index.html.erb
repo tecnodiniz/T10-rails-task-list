@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+</head>
+<body>
+    <h1>Bem vindo ao Task List!</h1>
+    <p>Isto é uma página html</p>
+    <em>Criada em <%= Date.today %></em>
+    </br>
+    </br>
+    <a href='tasks/new'>Nova tarefa</a>
+    <h2>Lista</h2>
+    <ul>
+       <% @tasks.each do |task|%>
+        <li><%= task.description %> --- 
+            <%= link_to 'Editar', edit_task_path(task) %> 
+              <%= link_to 'Apagar', task_path(task), method: :delete, data:{confirm:'Are you sure?'} %>
+        </li>
+       <% end %>
+    <ul>
+</body>
+</html>
