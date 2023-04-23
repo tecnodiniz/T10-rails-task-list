@@ -16,11 +16,12 @@
     <h2>Lista</h2>
     <ul>
        <% @tasks.each do |task|%>
-        <li><%= task.description %> --- <%= task.status%>
+        <li><%= task.description %> --- <%= task.status == true ? 'Finalizado' : 'Aberto' %> 
             <%= link_to 'Editar', edit_task_path(task) %> 
               <%= link_to 'Apagar', task_path(task), method: :delete, data:{confirm:'Are you sure?'} %>
         </li>
        <% end %>
     <ul>
+    
 </body>
 </html>

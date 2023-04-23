@@ -20,6 +20,7 @@ class TasksController < ApplicationController
 
     def update
         @task = Task.find(params[:id])
+        
         @task.update(params.require(:task).permit(:description, :status))
         redirect_to root_path
     end
